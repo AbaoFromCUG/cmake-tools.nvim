@@ -1,0 +1,4 @@
+vendor/plenary.nvim
+
+/tests/simple_project/build
+.cache
