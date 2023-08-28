@@ -77,8 +77,9 @@ function Project:configure()
     local source_dir = self:get_source_directory()
     local build_dir = self:get_build_directory()
 
-    local cmd = string.format("%s -S %s -B %s -DCMAKE_EXPORT_COMPILE_COMMANDS=1", cmake_path, source_dir, build_dir)
-    if not backbone.run(cmd) then
+    -- local cmd = string.format("%s -S %s -B %s -DCMAKE_EXPORT_COMPILE_COMMANDS=1", cmake_path, source_dir, build_dir)
+    local args = { "-S", source_dir, "-B", build_dir, "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }
+    if not backbone.run(cmake_path, args) then
         return false, "cmake configure failed"
     end
 
@@ -103,8 +104,9 @@ end
 function Project:build()
     local cmake_path = self:get_cmake_path()
     local build_dir = self:get_build_directory()
-    local cmd = string.format("%s --build %s --target all", cmake_path, build_dir)
-    if not backbone.run(cmd) then
+    -- local cmd = string.format("%s --build %s --target all", cmake_path, build_dir)
+    local args = { "--build", build_dir, "--target", "all" }
+    if not backbone.run(cmake_path, args) then
         return false, "cmake build failed"
     end
     return true
