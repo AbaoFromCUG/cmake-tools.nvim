@@ -1,4 +1,4 @@
-*cmake-tools.txt*          For NVIM v0.8.0         Last change: 2023 August 27
+*cmake-tools.txt*          For NVIM v0.8.0         Last change: 2023 August 28
 
 ==============================================================================
 Table of Contents                              *cmake-tools-table-of-contents*
